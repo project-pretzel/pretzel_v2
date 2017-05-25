@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/project-pretzel/pretzel_v2/issues"
   },
-  "homepage": "https://github.com/project-pretzel/pretzel_v2#readme"
+  "homepage": "https://github.com/project-pretzel/pretzel_v2#readme",
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^2.6.1"
+  }
 }
