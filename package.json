@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "webpack",
+    "compile": "webpack --watch",
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
