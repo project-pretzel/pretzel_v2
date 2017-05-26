@@ -29,6 +29,8 @@
     "path": "^0.12.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.2"

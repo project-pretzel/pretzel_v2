@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Navigation from './Navigation.jsx';
 
+
 class Landing extends React.Component {
   constructor() {
     super();
@@ -13,15 +14,12 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <div>
-        <MuiThemeProvider>
-          <div>
-            <Navigation />
-            <br />
-            Landing Page...
-          </div>
-        </MuiThemeProvider>
-      </div>
+      <MuiThemeProvider>
+        <div>
+          <Navigation />
+          <h3>Landing page...</h3>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
