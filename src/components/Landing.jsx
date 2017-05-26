@@ -27,7 +27,7 @@ class Landing extends React.Component {
   render() {
     const trends = this.state.trends.map((trend, i) => (
       <li key={i}>{trend}</li>
-        ),
+      ),
     );
 
     return (
