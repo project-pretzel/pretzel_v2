@@ -2,11 +2,13 @@ const express = require('express');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
+const path = require('path');
+
 const app = express();
 
 const compiler = webpack(webpackConfig);
 
-app.use(express.static(__dirname + '/www'));
+app.use(express.static(path.resolve(__dirname, 'www')));
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
@@ -18,7 +20,7 @@ app.use(webpackDevMiddleware(compiler, {
   historyApiFallback: true,
 }));
 
-const server = app.listen(3000, function() {
+const server = app.listen(3000, () => {
   const port = server.address().port;
   console.log(`We creepin' at http://localhost:${port}`);
 });
