@@ -17,7 +17,7 @@ class Landing extends React.Component {
         <MuiThemeProvider>
           <div>
             <Navigation />
-            Hey, you guys!
+            Landing Page...
           </div>
         </MuiThemeProvider>
       </div>
