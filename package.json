@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/project-pretzel/pretzel_v2#readme",
   "dependencies": {
+    "axios": "^0.16.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-latest": "^6.24.1",
