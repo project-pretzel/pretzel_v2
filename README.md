@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/project-pretzel/pretzel_v2.png?label=ready&title=Ready)](https://waffle.io/project-pretzel/pretzel_v2?utm_source=badge)
 # pretzel_v2
 ---
 
