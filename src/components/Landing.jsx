@@ -25,13 +25,14 @@ class Landing extends React.Component {
   }
 
   render() {
-    const trends = this.state.trends.map((trend, i) =>
-      <li key={i}>{trend}</li>,
+    const trends = this.state.trends.map((trend, i) => (
+      <li key={i}>{trend}</li>
+        ),
     );
 
     return (
       <MuiThemeProvider>
-        <div>
+        <div className="trends">
           <Navigation />
           <br />
           {trends}
