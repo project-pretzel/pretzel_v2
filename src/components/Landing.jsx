@@ -1,7 +1,7 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import Navigation from './Navigation';
+import Navigation from './Navigation.jsx';
 
 class Landing extends React.Component {
   constructor() {

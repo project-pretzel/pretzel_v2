@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import Landing from './components/Landing';
+import Landing from './components/Landing.jsx';
 
 injectTapEventPlugin();
 
