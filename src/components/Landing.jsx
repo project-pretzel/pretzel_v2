@@ -8,7 +8,6 @@ class Landing extends React.Component {
   constructor() {
     super();
     this.state = {
-      // TODO: Implement trends to state
       trends: [],
     };
   }
@@ -35,7 +34,9 @@ class Landing extends React.Component {
         <div className="trends">
           <Navigation />
           <br />
-          {trends}
+          <ol>
+            {trends}
+          </ol>
         </div>
       </MuiThemeProvider>
     );
