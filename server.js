@@ -22,7 +22,6 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 
 app.get('/trends', (req, res) => {
-  console.log('Requesting trends...');
   request('https://trends.google.com/trends/hottrends/visualize/internal/data', (error, response) => {
     if (!error && response.statusCode === 200) {
       const top20Trends = JSON.parse(response.body).united_states;
