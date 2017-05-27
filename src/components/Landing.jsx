@@ -50,7 +50,6 @@ class Landing extends React.Component {
     return (
       <MuiThemeProvider>
         <div className="trends">
-          <br />
           <List>
             <Subheader style={{ fontSize: 20 }}>
               Top 20 Google Searches Right Now
