@@ -8,8 +8,8 @@ import axios from 'axios';
 import Navigation from './Navigation.jsx';
 
 const trendRank = i => (
-  <div style={{ background: 'rgb(188, 188, 188)', width: 40, height: 40, lineHeight: '40px', textAlign: 'center' }}>
-    <font size="4">
+  <div style={{ background: 'rgb(0, 188, 212)', width: 40, height: 40, lineHeight: '40px', textAlign: 'center' }}>
+    <font color="white" size="4">
       {i + 1}
     </font>
   </div>
