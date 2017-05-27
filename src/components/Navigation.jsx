@@ -5,7 +5,7 @@ const Navigation = () => (
   <AppBar
     title="Pretzel"
     iconClassNameRight="muidocs-icon-navigation-expand-more"
-    style={{ backgroundColor: 'maroon' }}
+    style={{ backgroundColor: 'black' }}
   />
 );
 
