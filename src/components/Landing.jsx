@@ -8,7 +8,7 @@ import axios from 'axios';
 import Navigation from './Navigation.jsx';
 
 const trendRank = i => (
-  <div style={{ background: 'rgb(0, 188, 212)', width: 40, height: 40, lineHeight: '40px', textAlign: 'center' }}>
+  <div style={{ background: 'maroon', width: 40, height: 40, lineHeight: '40px', textAlign: 'center' }}>
     <font color="white" size="4">
       {i + 1}
     </font>
@@ -37,7 +37,12 @@ class Landing extends React.Component {
   render() {
     const trends = this.state.trends.map((trend, i) => (
       <span key={trend}>
-        <ListItem primaryText={trend} leftAvatar={trendRank(i)} key={trend} />
+        <ListItem
+          primaryText={trend}
+          leftAvatar={trendRank(i)}
+          key={trend}
+          onClick={() => console.info(`You clicked on ${trend}`)}
+        />
         <Divider />
       </span>
     ));
@@ -48,7 +53,9 @@ class Landing extends React.Component {
           <Navigation />
           <br />
           <List>
-            <Subheader>Top 20 Google Searches</Subheader>
+            <Subheader style={{ fontSize: 20 }}>
+              Top 20 Google Searches Right Now
+            </Subheader>
             {trends}
           </List>
         </div>
