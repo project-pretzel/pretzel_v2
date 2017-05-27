@@ -50,7 +50,6 @@ class Landing extends React.Component {
     return (
       <MuiThemeProvider>
         <div className="trends">
-          <Navigation />
           <br />
           <List>
             <Subheader style={{ fontSize: 20 }}>
@@ -63,4 +62,5 @@ class Landing extends React.Component {
     );
   }
 }
+
 export default Landing;
