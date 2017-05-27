@@ -1,12 +1,15 @@
 const express = require('express');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
+const path = require('path');
 const webpackConfig = require('./webpack.config.js');
+const request = require('request');
+
 const app = express();
 
 const compiler = webpack(webpackConfig);
 
-app.use(express.static(__dirname + '/www'));
+app.use(express.static(path.join(__dirname, 'www')));
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
@@ -18,7 +21,18 @@ app.use(webpackDevMiddleware(compiler, {
   historyApiFallback: true,
 }));
 
-const server = app.listen(3000, function() {
+app.get('/trends', (req, res) => {
+  request('https://trends.google.com/trends/hottrends/visualize/internal/data', (error, response) => {
+    if (!error && response.statusCode === 200) {
+      const top20Trends = JSON.parse(response.body).united_states;
+      res.json(top20Trends);
+    } else {
+      res.json(error);
+    }
+  });
+});
+
+const server = app.listen(3000, () => {
   const port = server.address().port;
   console.log(`We creepin' at http://localhost:${port}`);
 });
