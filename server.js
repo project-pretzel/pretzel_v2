@@ -36,9 +36,14 @@ app.get('/trends', (req, res) => {
   });
 });
 
+// FIXME: handleClick() method from Landing.jsx is not passing params
 app.get('/rss', (req, res) => {
-  request('', (error, response) => {
-
+  request(`https://news.google.com/news?cf=all&hl=en&pz=1&&q=/${req.params.q}&ned=us&output=rss`, (error, response) => {
+    if (!error && response.statusCode === 200) {
+      console.log(response.body);
+    } else {
+      res.json(error);
+    }
   });
 });
 

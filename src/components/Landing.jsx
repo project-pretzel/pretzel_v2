@@ -31,6 +31,21 @@ class Landing extends React.Component {
       });
   }
 
+  // FIXME: handleClick() method not passing params to back end request //
+  handleClick(trend) {
+    axios.get('/rss', {
+      params: {
+        q: trend,
+      },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }
+
   render() {
     const trends = this.state.trends.map((trend, i) => (
       <span key={trend}>
@@ -38,7 +53,7 @@ class Landing extends React.Component {
           primaryText={trend}
           leftAvatar={trendRank(i)}
           key={trend}
-          onClick={() => window.open(`http://google.com/#q=${trend}`)}
+          onClick={() => this.handleClick(trend)}
         />
         <Divider />
       </span>
