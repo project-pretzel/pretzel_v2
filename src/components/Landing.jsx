@@ -38,7 +38,7 @@ class Landing extends React.Component {
           primaryText={trend}
           leftAvatar={trendRank(i)}
           key={trend}
-          onClick={() => console.info(`You clicked on ${trend}`)}
+          onClick={() => window.open(`http://google.com/#q=${trend}`)}
         />
         <Divider />
       </span>
