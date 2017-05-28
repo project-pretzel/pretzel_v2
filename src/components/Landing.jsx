@@ -1,11 +1,8 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 import axios from 'axios';
-
-import Navigation from './Navigation.jsx';
 
 const trendRank = i => (
   <div style={{ background: 'maroon', width: 40, height: 40, lineHeight: '40px', textAlign: 'center' }}>
@@ -41,23 +38,21 @@ class Landing extends React.Component {
           primaryText={trend}
           leftAvatar={trendRank(i)}
           key={trend}
-          onClick={() => console.info(`You clicked on ${trend}`)}
+          onClick={() => window.open(`http://google.com/#q=${trend}`)}
         />
         <Divider />
       </span>
     ));
 
     return (
-      <MuiThemeProvider>
-        <div className="trends">
-          <List>
-            <Subheader style={{ fontSize: 20 }}>
-              Top 20 Google Searches Right Now
-            </Subheader>
-            {trends}
-          </List>
-        </div>
-      </MuiThemeProvider>
+      <div className="trends">
+        <List>
+          <Subheader style={{ fontSize: 20 }}>
+            Top 20 Google Searches Right Now
+          </Subheader>
+          {trends}
+        </List>
+      </div>
     );
   }
 }
