@@ -1,13 +1,17 @@
 const express = require('express');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpack = require('webpack');
-const webpackConfig = require('./webpack.config.js');
 const request = require('request');
+const webpack = require('webpack');
+const morgan = require('morgan');
 const path = require('path');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackConfig = require('./webpack.config.js');
+
 
 const app = express();
 
 const compiler = webpack(webpackConfig);
+
+app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, 'www')));
 
@@ -29,6 +33,12 @@ app.get('/trends', (req, res) => {
     } else {
       res.json(error);
     }
+  });
+});
+
+app.get('/rss', (req, res) => {
+  request('', (error, response) => {
+
   });
 });
 

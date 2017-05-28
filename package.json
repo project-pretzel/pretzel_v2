@@ -27,6 +27,7 @@
     "babel-preset-react": "^6.24.1",
     "express": "^4.15.3",
     "material-ui": "^0.18.1",
+    "morgan": "^1.8.2",
     "path": "^0.12.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
