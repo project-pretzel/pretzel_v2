@@ -1,10 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
 import Navigation from './Navigation.jsx';
 import Landing from './Landing.jsx';
-import Trend from './Trend.jsx';
 
 const routes = (
   <div>
