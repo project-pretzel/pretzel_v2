@@ -1,8 +1,8 @@
 import React from 'react';
-import { List, ListItem } from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
-import Divider from 'material-ui/Divider';
 import axios from 'axios';
+import Divider from 'material-ui/Divider';
+import Subheader from 'material-ui/Subheader';
+import { List, ListItem } from 'material-ui/List';
 
 const trendRank = i => (
   <div style={{ background: 'maroon', width: 40, height: 40, lineHeight: '40px', textAlign: 'center' }}>

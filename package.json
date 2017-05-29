@@ -31,9 +31,12 @@
     "path": "^0.12.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.6.0",
+    "redux-persist": "^4.8.0",
     "request": "^2.81.0",
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.2"

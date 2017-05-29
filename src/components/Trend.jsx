@@ -8,6 +8,7 @@ class Trend extends React.Component {
   }
 
   render() {
+
   }
 }
 
