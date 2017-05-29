@@ -2,12 +2,11 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getTrends } from '../actions/index';
-
 import axios from 'axios';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
+import { getTrends } from '../actions/index';
 
 const trendRank = i => (
   <div style={{ background: 'maroon', width: 40, height: 40, lineHeight: '40px', textAlign: 'center' }}>
@@ -76,8 +75,8 @@ const mapStateToProps = state => ({ trends: state.trends });
 const matchDispatchToProps = dispatch => bindActionCreators({ getTrends }, dispatch);
 
 Landing.propTypes = {
-  trends: propTypes.array,
-  getTrends: propTypes.func,
+  trends: propTypes.array.isRequired,
+  getTrends: propTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, matchDispatchToProps)(Landing);
