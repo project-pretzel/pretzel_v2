@@ -7,7 +7,7 @@ import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
 import { getTrends } from '../actions/index';
-import { trendRank } from '../helpers/helpers';
+import { trendRank } from '../helpers/helpers.jsx';
 
 
 class Landing extends React.Component {
