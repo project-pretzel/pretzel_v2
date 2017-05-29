@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getTrends } from '../actions/index';
@@ -17,18 +18,12 @@ const trendRank = i => (
 );
 
 class Landing extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      trends: [],
-    };
-  }
 
   componentWillMount() {
     axios.get('/trends')
       .then((response) => {
         const usTrends = response.data;
-        this.props.getTrends(response.data);
+        this.props.getTrends(usTrends);
       })
       .catch((err) => {
         console.error(err);
@@ -76,14 +71,13 @@ class Landing extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    trends: state.trends,
-  };
-}
+const mapStateToProps = state => ({ trends: state.trends });
 
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ getTrends }, dispatch);
-}
+const matchDispatchToProps = dispatch => bindActionCreators({ getTrends }, dispatch);
+
+Landing.propTypes = {
+  trends: propTypes.array,
+  getTrends: propTypes.func,
+};
 
 export default connect(mapStateToProps, matchDispatchToProps)(Landing);
