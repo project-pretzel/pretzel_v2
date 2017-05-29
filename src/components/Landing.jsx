@@ -1,30 +1,22 @@
 import React from 'react';
-import { List, ListItem } from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
-import Divider from 'material-ui/Divider';
+import propTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import axios from 'axios';
+import Divider from 'material-ui/Divider';
+import Subheader from 'material-ui/Subheader';
+import { List, ListItem } from 'material-ui/List';
+import { getTrends } from '../actions/index';
+import { trendRank } from '../helpers/helpers';
 
-const trendRank = i => (
-  <div style={{ background: 'maroon', width: 40, height: 40, lineHeight: '40px', textAlign: 'center' }}>
-    <font color="white" size="4">
-      {i + 1}
-    </font>
-  </div>
-);
 
 class Landing extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      trends: [],
-    };
-  }
 
   componentWillMount() {
     axios.get('/trends')
       .then((response) => {
         const usTrends = response.data;
-        this.setState({ trends: usTrends });
+        this.props.getTrends(usTrends);
       })
       .catch((err) => {
         console.error(err);
@@ -47,7 +39,7 @@ class Landing extends React.Component {
   }
 
   render() {
-    const trends = this.state.trends.map((trend, i) => (
+    const trends = this.props.trends.map((trend, i) => (
       <span key={trend}>
         <ListItem
           primaryText={trend}
@@ -72,4 +64,13 @@ class Landing extends React.Component {
   }
 }
 
-export default Landing;
+const mapStateToProps = state => ({ trends: state.trends });
+
+const matchDispatchToProps = dispatch => bindActionCreators({ getTrends }, dispatch);
+
+Landing.propTypes = {
+  trends: propTypes.array.isRequired,
+  getTrends: propTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, matchDispatchToProps)(Landing);
