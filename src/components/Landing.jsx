@@ -7,14 +7,8 @@ import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
 import { getTrends } from '../actions/index';
+import { trendRank } from '../helpers/helpers';
 
-const trendRank = i => (
-  <div style={{ background: 'maroon', width: 40, height: 40, lineHeight: '40px', textAlign: 'center' }}>
-    <font color="white" size="4">
-      {i + 1}
-    </font>
-  </div>
-);
 
 class Landing extends React.Component {
 
