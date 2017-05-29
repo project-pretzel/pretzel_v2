@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getTrends } from '../actions/index';
+
 import axios from 'axios';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
@@ -24,7 +28,7 @@ class Landing extends React.Component {
     axios.get('/trends')
       .then((response) => {
         const usTrends = response.data;
-        this.setState({ trends: usTrends });
+        this.props.getTrends(response.data);
       })
       .catch((err) => {
         console.error(err);
@@ -47,7 +51,7 @@ class Landing extends React.Component {
   }
 
   render() {
-    const trends = this.state.trends.map((trend, i) => (
+    const trends = this.props.trends.map((trend, i) => (
       <span key={trend}>
         <ListItem
           primaryText={trend}
@@ -72,4 +76,14 @@ class Landing extends React.Component {
   }
 }
 
-export default Landing;
+function mapStateToProps(state) {
+  return {
+    trends: state.trends,
+  };
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({ getTrends }, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Landing);
