@@ -12,7 +12,7 @@ import { trendRank } from '../helpers/helpers.jsx';
 
 class Landing extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('/trends')
       .then((response) => {
         const usTrends = response.data;
