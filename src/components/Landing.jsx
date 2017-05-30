@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import moment from 'moment';
 import axios from 'axios';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
@@ -39,6 +40,7 @@ class Landing extends React.Component {
   }
 
   render() {
+    const time = moment().format('dddd, MMMM Do YYYY, h:mma');
     const trends = this.props.trends.map((trend, i) => (
       <span key={trend}>
         <ListItem
@@ -56,6 +58,8 @@ class Landing extends React.Component {
         <List>
           <Subheader style={{ fontSize: 20 }}>
             Top 20 Google Searches Right Now
+            <br />
+            {time}
           </Subheader>
           {trends}
         </List>
