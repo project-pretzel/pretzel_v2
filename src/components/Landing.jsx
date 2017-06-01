@@ -45,7 +45,7 @@ class Landing extends React.Component {
     const time = moment().format('dddd, MMMM Do YYYY, h:mma');
     const trends = this.props.trends.map((trend, i) => (
       <span key={trend}>
-        <Link to={`/rss/${trend}`}>
+        <Link to={`/rss/${trend}`} style={{ textDecoration: 'none' }}>
           <ListItem
             primaryText={trend}
             leftAvatar={trendRank(i)}
