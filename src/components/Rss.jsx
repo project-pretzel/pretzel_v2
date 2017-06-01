@@ -1,14 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { selectTrend } from '../actions/index';
 
 // TODO: Implement RSS feed
 class Rss extends React.Component {
   render() {
     return (
       <div>
-        <h2>
+        <h2 className="trend-headline">
           {this.props.selected}
         </h2>
       </div>
