@@ -19,6 +19,4 @@ class Rss extends React.Component {
 
 const mapStateToProps = state => ({ selected: state.selected });
 
-const matchDispatchToProps = dispatch => bindActionCreators({ selectTrend }, dispatch);
-
-export default connect(mapStateToProps, matchDispatchToProps)(Rss);
+export default connect(mapStateToProps)(Rss);
