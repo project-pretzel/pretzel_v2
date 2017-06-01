@@ -1,10 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
+import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
@@ -63,14 +64,17 @@ class Landing extends React.Component {
 
     return (
       <div className="trends">
-        <List>
-          <Subheader style={{ fontSize: 20 }}>
-            Top 20 Google Searches Right Now
-            <br />
-            {time}
-          </Subheader>
-          {trends}
-        </List>
+        <Paper zDepth={4}>
+
+          <List>
+            <Subheader style={{ fontSize: 20 }}>
+              Top 20 Google Searches Right Now
+              <br />
+              {time}
+            </Subheader>
+            {trends}
+          </List>
+        </Paper>
       </div>
     );
   }
