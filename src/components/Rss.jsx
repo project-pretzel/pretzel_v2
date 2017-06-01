@@ -8,7 +8,7 @@ class Rss extends React.Component {
 
   render() {
     return (
-      <h1>We did it.</h1>
+      <h1>RSS component</h1>
     );
   }
 }
