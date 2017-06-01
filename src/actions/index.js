@@ -2,3 +2,8 @@ export const getTrends = trends => ({
   type: 'GET_TRENDS',
   payload: trends,
 });
+
+export const selectTrend = selected => ({
+  type: 'SELECT_TREND',
+  payload: selected,
+});

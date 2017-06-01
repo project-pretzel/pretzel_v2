@@ -1,16 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { selectTrend } from '../actions/index';
 
 // TODO: Implement RSS feed
 class Rss extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
-      <h1>RSS component</h1>
+      <div>
+        <h2>
+          {this.props.selected}
+        </h2>
+      </div>
     );
   }
 }
 
-export default Rss;
+
+const mapStateToProps = state => ({ selected: state.selected });
+
+const matchDispatchToProps = dispatch => bindActionCreators({ selectTrend }, dispatch);
+
+export default connect(mapStateToProps, matchDispatchToProps)(Rss);

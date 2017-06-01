@@ -9,7 +9,7 @@ const routes = (
   <div>
     <Route path="/" component={Navigation} />
     <Route exact path="/" component={Landing} />
-    <Route path="/rss" component={Rss} />
+    <Route path="/trend" component={Rss} />
   </div>
 );
 

@@ -9,6 +9,7 @@ import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
 import { getTrends } from '../actions/index';
+import { selectTrend } from '../actions/index';
 import { trendRank } from '../helpers/helpers.jsx';
 
 
@@ -44,11 +45,16 @@ class Landing extends React.Component {
     const time = moment().format('dddd, MMMM Do YYYY, h:mma');
     const trends = this.props.trends.map((trend, i) => (
       <span key={trend}>
-        <Link to={`/rss/${trend}`} style={{ textDecoration: 'none' }}>
+        <Link
+          to={`/trend/${trend}`}
+          style={{ textDecoration: 'none' }}
+        >
           <ListItem
+            value={trend}
             primaryText={trend}
             leftAvatar={trendRank(i)}
             key={trend}
+            onClick={() => this.props.selectTrend(trend)}
           />
         </Link>
         <Divider />
@@ -72,7 +78,7 @@ class Landing extends React.Component {
 
 const mapStateToProps = state => ({ trends: state.trends });
 
-const matchDispatchToProps = dispatch => bindActionCreators({ getTrends }, dispatch);
+const matchDispatchToProps = dispatch => bindActionCreators({ getTrends, selectTrend }, dispatch);
 
 Landing.propTypes = {
   trends: propTypes.array.isRequired,
