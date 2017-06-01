@@ -3,11 +3,13 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Navigation from './Navigation.jsx';
 import Landing from './Landing.jsx';
+import Rss from './Rss.jsx';
 
 const routes = (
   <div>
     <Route path="/" component={Navigation} />
-    <Route path="/" component={Landing} />
+    <Route exact path="/" component={Landing} />
+    <Route path="/rss" component={Rss} />
   </div>
 );
 

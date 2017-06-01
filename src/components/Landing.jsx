@@ -2,13 +2,15 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import moment from 'moment';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import moment from 'moment';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
 import { getTrends } from '../actions/index';
 import { trendRank } from '../helpers/helpers.jsx';
+import Rss from './Rss.jsx';
 
 
 class Landing extends React.Component {
@@ -25,30 +27,31 @@ class Landing extends React.Component {
   }
 
   // FIXME: handleClick() method not passing params to back end request //
-  handleClick(trend) {
-    axios.get('/rss', {
-      params: {
-        q: trend,
-      },
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  }
+  // handleClick(trend) {
+  //   axios.get('/rss', {
+  //     params: {
+  //       q: trend,
+  //     },
+  //   })
+  //   .then((response) => {
+  //     console.log(response);
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
+  // }
 
   render() {
     const time = moment().format('dddd, MMMM Do YYYY, h:mma');
     const trends = this.props.trends.map((trend, i) => (
       <span key={trend}>
-        <ListItem
-          primaryText={trend}
-          leftAvatar={trendRank(i)}
-          key={trend}
-          onClick={() => window.open(`http://google.com/#q=${trend}`)}
-        />
+        <Link to={`/rss/${trend}`} style={{ textDecoration: 'none' }}>
+          <ListItem
+            primaryText={trend}
+            leftAvatar={trendRank(i)}
+            key={trend}
+          />
+        </Link>
         <Divider />
       </span>
     ));
