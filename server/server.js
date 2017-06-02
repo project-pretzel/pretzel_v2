@@ -6,10 +6,13 @@ const morgan = require('morgan');
 const path = require('path');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('../webpack.config.js');
-const db = require('./dbConfig')
+const mongoose = require('mongoose');
+const Promise = require('bluebird');
+mongoose.Promise = Promise;
 
 
 const app = express();
+mongoose.connect('mongodb://localhost/pretzel');
 
 const compiler = webpack(webpackConfig);
 
@@ -51,5 +54,4 @@ app.get('/rss', (req, res) => {
 const server = app.listen(3000, () => {
   const port = server.address().port;
   console.log(`We creepin' at http://localhost:${port}`);
-  db.connectToDb();
 });

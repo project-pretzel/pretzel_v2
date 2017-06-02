@@ -1,4 +1,4 @@
-const UserModel = require('../models/user.js');
+const MessageModel = require('../models/message.js');
 
 // adds a user to the database
 exports.insertUser = function (user) {
@@ -16,7 +16,7 @@ exports.findUserById = function (id) {
 };
 
 // add the resource ID of a favorite resource
-exports.addFavorite = function (userId, resourceId) {
+exports.addMessage = function (userId, resourceId) {
   return UserModel.findOneAndUpdate({ _id: userId }, { $push: { favorites: resourceId } }, { new: true });
 };
 
