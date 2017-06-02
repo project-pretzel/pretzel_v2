@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Navigation from './Navigation.jsx';
 import Landing from './Landing.jsx';
@@ -15,9 +15,9 @@ const routes = (
 
 const App = () => (
   <MuiThemeProvider>
-    <BrowserRouter>
+    <HashRouter>
       {routes}
-    </BrowserRouter>
+    </HashRouter>
   </MuiThemeProvider>
 );
 
