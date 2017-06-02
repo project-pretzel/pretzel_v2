@@ -12,3 +12,7 @@ export const getRss = feed => ({
   type: 'GET_RSS',
   payload: feed,
 });
+
+export const clearFeed = () => ({
+  type: 'CLEAR_FEED',
+});

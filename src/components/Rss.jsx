@@ -1,8 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Card, CardText } from 'material-ui/Card';
+import { bindActionCreators } from 'redux';
+import { clearFeed } from '../actions/index';
 
 class Rss extends React.Component {
+
+  componentWillUnmount() {
+    this.props.clearFeed();
+  }
 
   render() {
     let feed;
@@ -41,4 +47,6 @@ class Rss extends React.Component {
 
 const mapStateToProps = state => ({ selected: state.selected, feed: state.feed });
 
-export default connect(mapStateToProps)(Rss);
+const matchDispatchToProps = dispatch => bindActionCreators({ clearFeed }, dispatch);
+
+export default connect(mapStateToProps, matchDispatchToProps)(Rss);
