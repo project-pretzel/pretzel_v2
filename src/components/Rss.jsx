@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import RaisedButton from 'material-ui/RaisedButton';
-import { Card, CardActions, CardHeader, CardText, CardTitle } from 'material-ui/Card';
+import { Card, CardText } from 'material-ui/Card';
 
 class Rss extends React.Component {
-
 
   render() {
     let feed;
