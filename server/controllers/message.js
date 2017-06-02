@@ -1,26 +1,19 @@
 const MessageModel = require('../models/message.js');
 
 // adds a user to the database
-exports.insertUser = function (user) {
-  return UserModel.create(user);
+exports.insertMessage = function (message) {
+  return MessageModel.create(message);
 };
 
-// finds a user by their username
-exports.findUserByUsername = function (username) {
-  return UserModel.findOne({ username });
+// finds a message by their user
+exports.findMessagesByUser = function (user) {
+  return MessageModel.find({user: user});
 };
 
-// finds a user by their ID
-exports.findUserById = function (id) {
-  return UserModel.findOne({ _id: id });
-};
-
-// add the resource ID of a favorite resource
-exports.addMessage = function (userId, resourceId) {
-  return UserModel.findOneAndUpdate({ _id: userId }, { $push: { favorites: resourceId } }, { new: true });
-};
-
-// removes a favorite from the user's array of favorites
-exports.removeFavorite = function (userId, resourceId) {
-  return UserModel.findOneAndUpdate({ _id: userId }, { $pullAll: { favorites: [resourceId] } }, { new: true });
+exports.findMessagesByTrend = function (trend) {
+	return MessageModel.find({trend: trend})
+}
+// finds a message by their ID
+exports.findMessageById = function (id) {
+  return MessageModel.findOne({ _id: id });
 };

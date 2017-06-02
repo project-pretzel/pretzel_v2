@@ -10,6 +10,8 @@ const mongoose = require('mongoose');
 const Promise = require('bluebird');
 mongoose.Promise = Promise;
 
+const userController = require('./controllers/user.js');
+
 
 const app = express();
 mongoose.connect('mongodb://localhost/pretzel');
@@ -54,4 +56,5 @@ app.get('/rss', (req, res) => {
 const server = app.listen(3000, () => {
   const port = server.address().port;
   console.log(`We creepin' at http://localhost:${port}`);
+
 });

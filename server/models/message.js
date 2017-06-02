@@ -9,7 +9,8 @@ const messageSchema = new Schema({
     ref: 'User',
   }],
   date : { type : Date, default: Date.now },
-  likes: Number
+  likes: Number,
+  trend: String
 });
 
 module.exports = mongoose.model('Message', userSchema);
