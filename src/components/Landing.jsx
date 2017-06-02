@@ -1,17 +1,18 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
+import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
-import { getTrends } from '../actions/index';
+import { getTrends, selectTrend, getRss } from '../actions/index';
 import { trendRank } from '../helpers/helpers.jsx';
-import Rss from './Rss.jsx';
 
+const time = moment().format('dddd, MMMM Do YYYY, h:mma');
 
 class Landing extends React.Component {
 
@@ -26,30 +27,27 @@ class Landing extends React.Component {
       });
   }
 
-  // FIXME: handleClick() method not passing params to back end request //
-  // handleClick(trend) {
-  //   axios.get('/rss', {
-  //     params: {
-  //       q: trend,
-  //     },
-  //   })
-  //   .then((response) => {
-  //     console.log(response);
-  //   })
-  //   .catch((err) => {
-  //     console.error(err);
-  //   });
-  // }
-
   render() {
-    const time = moment().format('dddd, MMMM Do YYYY, h:mma');
     const trends = this.props.trends.map((trend, i) => (
       <span key={trend}>
-        <Link to={`/rss/${trend}`} style={{ textDecoration: 'none' }}>
+        <Link
+          to={`/trend/${trend}`}
+          style={{ textDecoration: 'none' }}
+        >
           <ListItem
+            value={trend}
             primaryText={trend}
             leftAvatar={trendRank(i)}
             key={trend}
+            onClick={() => {
+              this.props.selectTrend(trend);
+              axios('/rss', { params: { q: trend } })
+              .then((response) => {
+                const feed = response.data.rss.channel;
+                this.props.getRss(feed);
+              })
+              .catch(error => console.error(error));
+            }}
           />
         </Link>
         <Divider />
@@ -58,14 +56,16 @@ class Landing extends React.Component {
 
     return (
       <div className="trends">
-        <List>
-          <Subheader style={{ fontSize: 20 }}>
+        <Paper zDepth={4} style={{ backgroundColor: 'rgba(0, 0, 0, 0.0)' }}> <List>
+          <Subheader style={{ fontSize: 16 }}>
             Top 20 Google Searches Right Now
-            <br />
-            {time}
+            <span style={{ float: 'right', paddingRight: 20 }}>
+              {time}
+            </span>
           </Subheader>
           {trends}
         </List>
+        </Paper>
       </div>
     );
   }
@@ -73,7 +73,7 @@ class Landing extends React.Component {
 
 const mapStateToProps = state => ({ trends: state.trends });
 
-const matchDispatchToProps = dispatch => bindActionCreators({ getTrends }, dispatch);
+const matchDispatchToProps = dispatch => bindActionCreators({ getTrends, selectTrend, getRss }, dispatch);
 
 Landing.propTypes = {
   trends: propTypes.array.isRequired,

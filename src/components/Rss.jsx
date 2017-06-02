@@ -1,16 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 // TODO: Implement RSS feed
 class Rss extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
-      <h1>RSS component</h1>
+      <div>
+        <h2 className="trend-headline">
+          {this.props.selected}
+        </h2>
+        <p>
+          <a href={this.props.feed.link} target="_blank">{this.props.feed.title}</a>
+        </p>
+      </div>
     );
   }
 }
 
-export default Rss;
+
+const mapStateToProps = state => ({ selected: state.selected, feed: state.feed });
+
+export default connect(mapStateToProps)(Rss);
