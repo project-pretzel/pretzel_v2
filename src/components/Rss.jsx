@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import FlatButton from 'material-ui/FlatButton';
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+import { Card, CardActions, CardHeader, CardText, CardTitle } from 'material-ui/Card';
 
 class Rss extends React.Component {
 
@@ -11,11 +11,13 @@ class Rss extends React.Component {
     console.log(this.props.feed);
     if (Array.isArray(this.props.feed.item)) {
       feed = this.props.feed.item.map((item, i) => (
-        <Card key={i}>
-          <CardText>
-            {item.title}
-          </CardText>
-        </Card>
+        <a href={item.link} key={i} target="_blank" style={{ textDecoration: 'none' }}>
+          <Card>
+            <CardText>
+              {item.title}
+            </CardText>
+          </Card>
+        </a>
       ));
     }
 
@@ -26,8 +28,11 @@ class Rss extends React.Component {
           {this.props.selected}
         </h2>
         <div className="trend-feed" style={{ width: '50%' }}>
-          <a href={this.props.feed.link} target="_blank"><font color="black">{this.props.feed.title}</font></a>
+          <a href={this.props.feed.link} target="_blank">
+            <font color="black">{this.props.feed.title}</font>
+          </a>
           <div>
+            <br />
             {feed}
           </div>
         </div>
