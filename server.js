@@ -3,7 +3,6 @@ const request = require('request');
 const webpack = require('webpack');
 const morgan = require('morgan');
 const path = require('path');
-const queryString = require('querystring');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('./webpack.config.js');
 
