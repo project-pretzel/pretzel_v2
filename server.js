@@ -3,6 +3,7 @@ const request = require('request');
 const webpack = require('webpack');
 const morgan = require('morgan');
 const path = require('path');
+const queryString = require('querystring');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('./webpack.config.js');
 
@@ -35,12 +36,10 @@ app.get('/trends', (req, res) => {
   });
 });
 
-// FIXME: handleClick() method from Landing.jsx is not passing params
-// https://github.com/request/request
 app.get('/rss', (req, res) => {
-  request('https://news.google.com/news?cf=all&hl=en&pz=1&&ned=us&output=rss', (error, response) => {
+  request(`https://news.google.com/news?cf=all&hl=en&pz=1&&ned=us&output=rss&q=${req.query.q}`, (error, response) => {
     if (!error && response.statusCode === 200) {
-      console.log('I got a response', req.params.q);
+      res.json(response);
     } else {
       res.json(error);
     }
