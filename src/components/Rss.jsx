@@ -9,9 +9,11 @@ class Rss extends React.Component {
         <h2 className="trend-headline">
           {this.props.selected}
         </h2>
-        <p>
-          <a href={this.props.feed.link} target="_blank">{this.props.feed.title}</a>
-        </p>
+        <div>
+          <p>
+            <a href={this.props.feed.link} target="_blank">{this.props.feed.title}</a>
+          </p>
+        </div>
       </div>
     );
   }
