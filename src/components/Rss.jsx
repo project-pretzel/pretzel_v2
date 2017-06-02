@@ -15,6 +15,6 @@ class Rss extends React.Component {
 }
 
 
-const mapStateToProps = state => ({ selected: state.selected });
+const mapStateToProps = state => ({ selected: state.selected, feed: state.feed });
 
 export default connect(mapStateToProps)(Rss);

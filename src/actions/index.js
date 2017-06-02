@@ -7,3 +7,8 @@ export const selectTrend = selected => ({
   type: 'SELECT_TREND',
   payload: selected,
 });
+
+export const getRss = feed => ({
+  type: 'GET_RSS',
+  payload: feed,
+});

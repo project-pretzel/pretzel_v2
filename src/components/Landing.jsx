@@ -9,10 +9,10 @@ import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
-import { getTrends } from '../actions/index';
-import { selectTrend } from '../actions/index';
+import { getTrends, selectTrend, getRss } from '../actions/index';
 import { trendRank } from '../helpers/helpers.jsx';
 
+const time = moment().format('dddd, MMMM Do YYYY, h:mma');
 
 class Landing extends React.Component {
 
@@ -28,7 +28,6 @@ class Landing extends React.Component {
   }
 
   render() {
-    const time = moment().format('dddd, MMMM Do YYYY, h:mma');
     const trends = this.props.trends.map((trend, i) => (
       <span key={trend}>
         <Link
@@ -42,12 +41,11 @@ class Landing extends React.Component {
             key={trend}
             onClick={() => {
               this.props.selectTrend(trend);
-              axios('/rss', {
-                params: {
-                  q: trend,
-                },
+              axios('/rss', { params: { q: trend } })
+              .then((response) => {
+                const feed = response.data.rss.channel;
+                this.props.getRss(feed);
               })
-              .then(response => console.log(response.data.rss.channel))
               .catch(error => console.error(error));
             }}
           />
@@ -73,9 +71,9 @@ class Landing extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ trends: state.trends });
+const mapStateToProps = state => ({ trends: state.trends, feed: state.feed });
 
-const matchDispatchToProps = dispatch => bindActionCreators({ getTrends, selectTrend }, dispatch);
+const matchDispatchToProps = dispatch => bindActionCreators({ getTrends, selectTrend, getRss }, dispatch);
 
 Landing.propTypes = {
   trends: propTypes.array.isRequired,
