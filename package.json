@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "webpack --watch",
-    "start": "webpack --watch & nodemon server.js",
+    "start": "webpack --watch & nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,9 +26,13 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "bcrypt": "^1.0.2",
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.0",
     "express": "^4.15.3",
     "material-ui": "^0.18.1",
     "moment": "^2.18.1",
+    "mongoose": "^4.10.4",
     "morgan": "^1.8.2",
     "path": "^0.12.7",
     "prop-types": "^15.5.10",

@@ -5,16 +5,19 @@ const parser = require('xml2json');
 const morgan = require('morgan');
 const path = require('path');
 const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('../webpack.config.js');
+const mongoose = require('mongoose');
+const Promise = require('bluebird');
+mongoose.Promise = Promise;
 
 const app = express();
+mongoose.connect('mongodb://localhost/pretzel');
 
 const compiler = webpack(webpackConfig);
 
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, 'www')));
-
+app.use(express.static(path.join(__dirname, '../www')));
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
   filename: 'bundle.js',
