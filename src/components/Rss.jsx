@@ -6,7 +6,6 @@ class Rss extends React.Component {
 
   render() {
     let feed;
-    console.log(this.props.feed);
     if (Array.isArray(this.props.feed.item)) {
       feed = this.props.feed.item.map((item, i) => (
         <a href={item.link} key={i} target="_blank" style={{ textDecoration: 'none' }}>
