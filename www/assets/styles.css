@@ -5,3 +5,7 @@ body {
 .trend-headline {
   text-align: center;
 }
+
+.trend-feed {
+  text-align: justify;
+}
