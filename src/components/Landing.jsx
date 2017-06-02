@@ -71,7 +71,7 @@ class Landing extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ trends: state.trends, feed: state.feed });
+const mapStateToProps = state => ({ trends: state.trends });
 
 const matchDispatchToProps = dispatch => bindActionCreators({ getTrends, selectTrend, getRss }, dispatch);
 
