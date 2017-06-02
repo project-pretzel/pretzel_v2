@@ -1,6 +1,7 @@
 const express = require('express');
 const request = require('request');
 const webpack = require('webpack');
+const parser = require('xml2json');
 const morgan = require('morgan');
 const path = require('path');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -38,7 +39,8 @@ app.get('/trends', (req, res) => {
 app.get('/rss', (req, res) => {
   request(`https://news.google.com/news?cf=all&hl=en&pz=1&&ned=us&output=rss&q=${req.query.q}`, (error, response) => {
     if (!error && response.statusCode === 200) {
-      res.json(response);
+      const jsonFeed = parser.toJson(response.body);
+      res.json(JSON.parse(jsonFeed));
     } else {
       res.json(error);
     }

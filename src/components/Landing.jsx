@@ -47,7 +47,7 @@ class Landing extends React.Component {
                   q: trend,
                 },
               })
-              .then(response => console.log(response))
+              .then(response => console.log(response.data.rss.channel))
               .catch(error => console.error(error));
             }}
           />
