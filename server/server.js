@@ -5,7 +5,9 @@ const parser = require('xml2json');
 const morgan = require('morgan');
 const path = require('path');
 const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('../webpack.config.js');
+const db = require('./dbConfig')
+
 
 const app = express();
 
@@ -13,8 +15,7 @@ const compiler = webpack(webpackConfig);
 
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, 'www')));
-
+app.use(express.static(path.join(__dirname, '../www')));
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
   filename: 'bundle.js',
@@ -50,4 +51,5 @@ app.get('/rss', (req, res) => {
 const server = app.listen(3000, () => {
   const port = server.address().port;
   console.log(`We creepin' at http://localhost:${port}`);
+  db.connectToDb();
 });
