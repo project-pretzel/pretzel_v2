@@ -6,7 +6,9 @@ import Rss from './Rss.jsx';
 class Trend extends React.Component {
   render() {
     return (
-      <Rss />
+      <div>
+        <Rss />
+      </div>
     );
   }
 }

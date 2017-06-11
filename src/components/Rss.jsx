@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Card, CardText } from 'material-ui/Card';
 import { bindActionCreators } from 'redux';
+import { CSSTransitionGroup } from 'react-transition-group';
 import { clearFeed } from '../actions/index';
 
 class Rss extends React.Component {
@@ -27,18 +28,26 @@ class Rss extends React.Component {
 
     return (
       <div>
-        <h2 className="trend-headline">
-          {this.props.selected}
-        </h2>
-        <div className="trend-feed" style={{ width: '50%' }}>
-          <a href={this.props.feed.link} target="_blank">
-            <font color="black">{this.props.feed.title}</font>
-          </a>
-          <div>
-            <br />
-            {feed}
+        <CSSTransitionGroup
+          transitionName="example"
+          transitionAppear
+          transitionAppearTimeout={500}
+          transitionEnter
+          transitionLeave={false}
+        >
+          <h2 className="trend-headline">
+            {this.props.selected}
+          </h2>
+          <div className="trend-feed" style={{ width: '50%' }}>
+            <a href={this.props.feed.link} target="_blank">
+              <font color="black">{this.props.feed.title}</font>
+            </a>
+            <div>
+              <br />
+              {feed}
+            </div>
           </div>
-        </div>
+        </CSSTransitionGroup>
       </div>
     );
   }
