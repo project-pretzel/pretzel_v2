@@ -15,7 +15,7 @@ class Rss extends React.Component {
     let feed;
     if (Array.isArray(this.props.feed.item)) {
       feed = this.props.feed.item.map((item, i) => (
-        <a href={item.link} key={i} target="_blank" style={{ textDecoration: 'none' }}>
+        <a href={item.link} key={i} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
           <Card>
             <CardText>
               {item.title}
@@ -39,7 +39,7 @@ class Rss extends React.Component {
             {this.props.selected}
           </h2>
           <div className="trend-feed" style={{ width: '50%' }}>
-            <a href={this.props.feed.link} target="_blank">
+            <a href={this.props.feed.link} target="_blank" rel="noopener noreferrer">
               <font color="black">{this.props.feed.title}</font>
             </a>
             <div>

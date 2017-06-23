@@ -3,12 +3,19 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.time {
+  display: flex;
+  flex-direction: column;
+}
+
 .trend-headline {
   text-align: center;
 }
 
 .trend-feed {
   text-align: justify;
+  display: flex;
+  flex-direction: column;
 }
 
 .example-appear {

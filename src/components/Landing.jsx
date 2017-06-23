@@ -57,12 +57,14 @@ class Landing extends React.Component {
     return (
       <div className="trends">
         <Paper zDepth={4} style={{ backgroundColor: 'rgba(0, 0, 0, 0.0)' }}> <List>
-          <Subheader style={{ fontSize: 16 }}>
-            Top 20 Google Searches Right Now
-            <span style={{ float: 'right', paddingRight: 20 }}>
-              {time}
-            </span>
-          </Subheader>
+          <div className="time">
+            <Subheader style={{ fontSize: 16 }}>
+              Top 20 Google Searches Right Now
+              <span style={{ float: 'right', paddingRight: 20 }}>
+                {time}
+              </span>
+            </Subheader>
+          </div>
           {trends}
         </List>
         </Paper>
