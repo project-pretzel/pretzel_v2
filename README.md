@@ -15,7 +15,12 @@ Start the development server with this command:
 npm start
 ```
 
+Database
+---
 
+```
+mongod
+```
 
 Setup
 ---
@@ -23,7 +28,6 @@ Setup
 ```
 npm install
 ```
-
 
 
 Compile
