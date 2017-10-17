@@ -9,8 +9,9 @@
   },
   "scripts": {
     "compile": "webpack",
-    "start": "npm run compile && node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm run compile"
   },
   "repository": {
     "type": "git",
