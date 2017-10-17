@@ -11,7 +11,7 @@ const Promise = require('bluebird');
 mongoose.Promise = Promise;
 
 const app = express();
-mongoose.connect('mongodb://localhost/pretzel');
+// mongoose.connect('mongodb://localhost/pretzel');
 
 const compiler = webpack(webpackConfig);
 
