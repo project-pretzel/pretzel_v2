@@ -8,8 +8,8 @@
     "npm": "5.5.1"
   },
   "scripts": {
-    "compile": "webpack --watch",
-    "start": "webpack & node server/server.js",
+    "compile": "webpack",
+    "start": "npm run compile && node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
