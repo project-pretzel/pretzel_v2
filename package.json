@@ -9,9 +9,8 @@
   },
   "scripts": {
     "compile": "webpack --config webpack.prod.js",
-    "start": "node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm run compile"
+    "start": "webpack --watch & node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
