@@ -32,7 +32,7 @@ class Rss extends React.Component {
           transitionName="example"
           transitionAppear
           transitionAppearTimeout={500}
-          transitionEnter
+          transitionEnterTimeout={500}
           transitionLeave={false}
         >
           <h2 className="trend-headline">
