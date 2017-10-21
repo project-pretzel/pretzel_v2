@@ -38,7 +38,7 @@ class Rss extends React.Component {
           <h2 className="trend-headline">
             {this.props.selected}
           </h2>
-          <div className="trend-feed" style={{ width: '50%' }}>
+          <div className="trend-feed" style={{ width: '100%' }}>
             <a href={this.props.feed.link} target="_blank" rel="noopener noreferrer">
               <font color="black">{this.props.feed.title}</font>
             </a>
