@@ -8,6 +8,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('../webpack.config.js');
 const mongoose = require('mongoose');
 const Promise = require('bluebird');
+
 mongoose.Promise = Promise;
 
 const app = express();
