@@ -7,11 +7,11 @@ exports.insertMessage = function (message) {
 
 // finds a message by their user
 exports.findMessagesByUser = function (user) {
-  return MessageModel.find({ user: user });
+  return MessageModel.find({ user });
 };
 
 exports.findMessagesByTrend = function (trend) {
-  return MessageModel.find({ trend: trend });
+  return MessageModel.find({ trend });
 };
 // finds a message by their ID
 exports.findMessageById = function (id) {
