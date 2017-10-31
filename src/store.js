@@ -7,6 +7,7 @@ import allReducers from './reducers/rootReducer';
 // this is done as a promise authentication to enable
 // authenticaion check when app component loads
 
+
 export default function configureStore() {
   return new Promise((resolve, reject) => {
     try {
