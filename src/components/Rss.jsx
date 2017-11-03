@@ -16,14 +16,17 @@ class Rss extends React.Component {
     let feed;
     if (Array.isArray(this.props.feed)) {
       feed = this.props.feed.map((item, i) => (
-        <a href={item.link} key={i} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-          <Card>
-            <CardHeader
-              subtitle={item.publisher}
-            />
-            <CardTitle title={item.title} titleStyle={{ fontSize: 16 }} />
-          </Card>
-        </a>
+        <span key={i}>
+          <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+            <Card>
+              <CardHeader
+                subtitle={item.publisher}
+              />
+              <CardTitle title={item.title} titleStyle={{ fontSize: 16 }} />
+            </Card>
+          </a>
+          <br />
+        </span>
       ));
     }
 
