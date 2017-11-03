@@ -43,7 +43,7 @@ class Landing extends React.Component {
               this.props.selectTrend(trend);
               axios('/rss', { params: { q: trend } })
               .then((response) => {
-                const feed = response.data.rss.channel;
+                const feed = response.data.splice(1, 10);
                 this.props.getRss(feed);
               })
               .catch(error => console.error(error));

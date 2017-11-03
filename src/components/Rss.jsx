@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Card, CardText } from 'material-ui/Card';
+import { Card, CardText, CardActions, CardTitle, CardHeader } from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 import { bindActionCreators } from 'redux';
 import { CSSTransitionGroup } from 'react-transition-group';
 import { clearFeed } from '../actions/index';
@@ -13,13 +14,14 @@ class Rss extends React.Component {
 
   render() {
     let feed;
-    if (Array.isArray(this.props.feed.item)) {
-      feed = this.props.feed.item.map((item, i) => (
+    if (Array.isArray(this.props.feed)) {
+      feed = this.props.feed.map((item, i) => (
         <a href={item.link} key={i} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
           <Card>
-            <CardText>
-              {item.title}
-            </CardText>
+            <CardHeader
+              subtitle={item.publisher}
+            />
+            <CardTitle title={item.title} titleStyle={{ fontSize: 16 }} />
           </Card>
         </a>
       ));

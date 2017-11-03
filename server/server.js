@@ -8,8 +8,11 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('../webpack.config.js');
 const mongoose = require('mongoose');
 const Promise = require('bluebird');
+const GoogleNewsRss = require('google-news-rss');
 
-mongoose.Promise = Promise;
+const googleNews = new GoogleNewsRss();
+
+// mongoose.Promise = Promise;
 
 const app = express();
 // mongoose.connect('mongodb://localhost/pretzel');
@@ -41,14 +44,9 @@ app.get('/trends', (req, res) => {
 });
 
 app.get('/rss', (req, res) => {
-  request(`https://news.google.com/news?cf=all&hl=en&pz=1&&ned=us&output=rss&q=${req.query.q}`, (error, response) => {
-    if (!error && response.statusCode === 200) {
-      const jsonFeed = parser.toJson(response.body);
-      res.json(JSON.parse(jsonFeed));
-    } else {
-      res.json(error);
-    }
-  });
+  googleNews
+    .search(req.query.q)
+    .then(resp => res.json(resp));
 });
 
 const server = app.listen(process.env.PORT || 3000, () => {
