@@ -9,7 +9,7 @@
   },
   "scripts": {
     "compile": "webpack --config webpack.prod.js",
-    "start": "node server/server.js",
+    "start": "webpack --watch & node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run compile"
   },
@@ -41,6 +41,7 @@
     "moment": "^2.18.1",
     "mongoose": "^4.10.4",
     "morgan": "^1.8.2",
+    "node-expat": "^2.3.16",
     "path": "^0.12.7",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",

@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Navigation from './Navigation.jsx';
 import Landing from './Landing.jsx';
 import Trend from './Trend.jsx';
+import Rss from './Rss.jsx';
 
 const routes = (
   <div>

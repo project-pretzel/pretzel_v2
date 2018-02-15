@@ -11,6 +11,7 @@ import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
 import { getTrends, selectTrend, getRss } from '../actions/index';
 import { trendRank } from '../helpers/helpers.jsx';
+import Rss from './Rss.jsx';
 
 const time = moment().format('dddd, MMMM Do YYYY, h:mma');
 
@@ -30,44 +31,50 @@ class Landing extends React.Component {
   render() {
     const trends = this.props.trends.map((trend, i) => (
       <span key={trend}>
-        <Link
+        {/* <Link
           to={`/trend/${trend}`}
           style={{ textDecoration: 'none' }}
-        >
-          <ListItem
-            value={trend}
-            primaryText={trend}
-            leftAvatar={trendRank(i)}
-            key={trend}
-            onClick={() => {
-              this.props.selectTrend(trend);
-              axios('/rss', { params: { q: trend } })
+        > */}
+        <ListItem
+          value={trend}
+          primaryText={trend}
+          leftAvatar={trendRank(i)}
+          key={trend}
+          onClick={() => {
+            this.props.selectTrend(trend);
+            axios('/rss', { params: { q: trend } })
               .then((response) => {
                 const feed = response.data.splice(1, 10);
                 this.props.getRss(feed);
               })
               .catch(error => console.error(error));
-            }}
-          />
-        </Link>
+          }}
+        />
+        {/* </Link> */}
         <Divider />
       </span>
     ));
 
     return (
       <div className="trends">
-        <Paper zDepth={4} style={{ backgroundColor: 'rgba(0, 0, 0, 0.0)' }}> <List>
+        {/* <Paper zDepth={4} style={{ backgroundColor: 'rgba(0, 0, 0, 0.0)' }}> */}
+        <List>
           <div className="time">
             <Subheader style={{ fontSize: 16 }}>
-              Top 20 Google Searches Right Now
+              Top 20 Google Searches Right Now assss
               <span style={{ float: 'right', paddingRight: 20 }}>
                 {time}
               </span>
             </Subheader>
           </div>
-          {trends}
+          <div style={{ width: '50%', float: 'left' }}>
+            {trends}
+          </div>
         </List>
-        </Paper>
+        <div style={{ width: '50%', float: 'right' }}>
+          <Rss />
+        </div>
+        {/* </Paper> */}
       </div>
     );
   }
