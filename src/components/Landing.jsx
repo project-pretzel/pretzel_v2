@@ -61,7 +61,7 @@ class Landing extends React.Component {
         <List>
           <div className="time">
             <Subheader style={{ fontSize: 16 }}>
-              Top 20 Google Searches Right Now assss
+              Top 20 Google Searches Right Now
               <span style={{ float: 'right', paddingRight: 20 }}>
                 {time}
               </span>
