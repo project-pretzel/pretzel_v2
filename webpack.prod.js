@@ -6,11 +6,11 @@ const config = require('./webpack.config.js');
 module.exports = merge(config, {
   plugins: [
     new UglifyJSPlugin(),
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     NODE_ENV: JSON.stringify('production'),
-    //   },
-    // }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
     new webpack.ProvidePlugin({
       fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
     }),

@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Card, CardText, CardActions, CardTitle, CardHeader } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import { Card, CardTitle, CardHeader } from 'material-ui/Card';
 import { bindActionCreators } from 'redux';
-import { CSSTransitionGroup } from 'react-transition-group';
 import { clearFeed } from '../actions/index';
 
 class Rss extends React.Component {
@@ -33,19 +31,11 @@ class Rss extends React.Component {
 
     return (
       <div>
-        <CSSTransitionGroup
-          transitionName="example"
-          transitionAppear
-          transitionAppearTimeout={500}
-          transitionEnterTimeout={500}
-          transitionLeave={false}
-        >
-          <h2 className="trend-headline">
-            {this.props.selected}
-          </h2>
-          <br />
-          {feed}
-        </CSSTransitionGroup>
+        <h3 className="trend-headline">
+          {this.props.selected}
+        </h3>
+        <br />
+        {feed}
       </div>
     );
   }

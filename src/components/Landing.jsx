@@ -1,11 +1,9 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import moment from 'moment';
-import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
@@ -30,11 +28,7 @@ class Landing extends React.Component {
 
   render() {
     const trends = this.props.trends.map((trend, i) => (
-      <span key={trend}>
-        {/* <Link
-          to={`/trend/${trend}`}
-          style={{ textDecoration: 'none' }}
-        > */}
+      <span key={trend} style={{ paddingTop: 100 }}>
         <ListItem
           value={trend}
           primaryText={trend}
@@ -50,14 +44,12 @@ class Landing extends React.Component {
               .catch(error => console.error(error));
           }}
         />
-        {/* </Link> */}
         <Divider />
       </span>
     ));
 
     return (
       <div className="trends">
-        {/* <Paper zDepth={4} style={{ backgroundColor: 'rgba(0, 0, 0, 0.0)' }}> */}
         <List>
           <div className="time">
             <Subheader style={{ fontSize: 16 }}>
@@ -74,7 +66,6 @@ class Landing extends React.Component {
         <div style={{ width: '50%', float: 'right' }}>
           <Rss />
         </div>
-        {/* </Paper> */}
       </div>
     );
   }

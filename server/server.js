@@ -1,25 +1,18 @@
 const express = require('express');
 const request = require('request');
 const webpack = require('webpack');
-const parser = require('xml2json');
-const morgan = require('morgan');
 const path = require('path');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('../webpack.config.js');
-const mongoose = require('mongoose');
-const Promise = require('bluebird');
 const GoogleNewsRss = require('google-news-rss');
 
 const googleNews = new GoogleNewsRss();
 
-// mongoose.Promise = Promise;
-
 const app = express();
-// mongoose.connect('mongodb://localhost/pretzel');
 
 const compiler = webpack(webpackConfig);
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, '../www')));
 app.use(webpackDevMiddleware(compiler, {
