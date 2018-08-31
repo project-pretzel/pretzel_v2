@@ -1,5 +1,11 @@
 body {
-  background-color: rgba(187, 235, 238, 0.5);
+  background-color: rgba(157, 157, 157, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
 }
 
 .trend-headline {
@@ -8,4 +14,15 @@ body {
 
 .trend-feed {
   text-align: justify;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-out;
 }

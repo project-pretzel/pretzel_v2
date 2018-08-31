@@ -3,10 +3,15 @@
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "8.8.1",
+    "npm": "5.5.1"
+  },
   "scripts": {
-    "compile": "webpack --watch",
-    "start": "webpack --watch & nodemon server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "webpack --config webpack.prod.js",
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm run compile"
   },
   "repository": {
     "type": "git",
@@ -26,14 +31,12 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "bcrypt": "^1.0.2",
-    "bcrypt-nodejs": "0.0.3",
-    "bluebird": "^3.5.0",
-    "express": "^4.15.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "google-news-rss": "^0.2.0",
     "material-ui": "^0.18.1",
     "moment": "^2.18.1",
-    "mongoose": "^4.10.4",
-    "morgan": "^1.8.2",
+    "node-expat": "^2.3.16",
     "path": "^0.12.7",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
@@ -45,9 +48,10 @@
     "redux": "^3.6.0",
     "redux-persist": "^4.8.0",
     "request": "^2.81.0",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.2",
-    "xml2json": "^0.11.0"
+    "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
@@ -55,6 +59,9 @@
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
-    "nodemon": "^1.11.0"
+    "exports-loader": "^0.6.4",
+    "imports-loader": "^0.7.1",
+    "nodemon": "^1.11.0",
+    "redux-devtools-extension": "^2.13.2"
   }
 }

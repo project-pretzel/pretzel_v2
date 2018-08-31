@@ -7,6 +7,7 @@ import allReducers from './reducers/rootReducer';
 // this is done as a promise authentication to enable
 // authenticaion check when app component loads
 
+
 export default function configureStore() {
   return new Promise((resolve, reject) => {
     try {
@@ -15,7 +16,7 @@ export default function configureStore() {
         undefined,
         compose(
           autoRehydrate(),
-          window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+          // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
         ),
       );
 
@@ -24,7 +25,7 @@ export default function configureStore() {
         { storage: localStorage },
         () => resolve(store),
       );
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+      // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
     } catch (e) {
       reject(e);
     }

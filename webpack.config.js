@@ -1,10 +1,11 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
   entry: [
     'babel-polyfill',
-    './main.jsx',
+    './index.js',
   ],
   output: {
     path: path.join(__dirname, 'www'),

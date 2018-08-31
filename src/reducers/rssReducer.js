@@ -5,7 +5,7 @@ const rssReducer = (state = initialState, action) => {
     case 'CLEAR_FEED':
       return initialState;
     case 'GET_RSS':
-      return Object.assign({}, state, action.payload);
+      return action.payload;
     default:
       return state;
   }
